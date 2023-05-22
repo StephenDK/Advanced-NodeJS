@@ -17,9 +17,18 @@ function shouldContinue() {
 // Entire body executes in one "tick"
 while(shouldContinue()) {   // Event loop simulation
 
-    // 1) Node looks in pendingTimers and checks if any functions are ready to be called
+    // 1) Node looks in pendingTimers and checks if any functions are ready to be called (setTimeout, setInterval)
 
     // 2) Node looks at pendingOSTasks and pendingOperations and calls relevant callbacks
+
+    // 3) Pause execution. Continues when...
+    // - a new pendingOSTask is done
+    // - a new pendingOperation is done
+    // - a timer is about to complete
+
+    // 4) Look at pendingTimers. Call any setImmediate
+
+    // 5) Handle any 'close' events
 }
 
 // Exit back to terminal
